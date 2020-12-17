@@ -1,0 +1,62 @@
+{% extends "base.html"%}
+
+{% block content %}
+<h1>Active</h1>
+<table class="table table-dark">
+    <thead class="thead-dark">
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+    <tbody>
+        {% for product in productst %}
+
+        {% set color = '' %}
+
+        {% set productId = product['id'] %}
+
+        {% if product.price <= 100 %} {% set color='background-color:red;' %} {% elif product["price"]> 100 and
+            product["price"] <= 500: %} {% set color='background-color:yellow;' %} {% else: %} {% set color='' %} {%
+                endif%} <tr style="{{ color }}">
+                <td>{{ product["name"] }}</td>
+                <td>{{ product["category"] }}</td>
+                <td>{{ product["price"] }}</td>
+                <td>
+                    <a href="reviewcomments/{{productId}}">Reviews</a>
+                    <a href="products/{{productId}}/1">Unactivate</a>
+                </td>
+                </tr>
+
+                {% endfor %}
+    </tbody>
+</table>
+<HR>
+<h1>UnActive</h1>
+<table class="table table-dark">
+    <thead class="thead-dark">
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+    <tbody>
+        {% for productf in productsf %}
+
+        {% set productId = productf['id'] %}
+        {% set color = '' %}
+        {% if productf["price"] <= 100 %} {% set color='background-color:red;' %} {% elif productf["price"]> 100 and
+            productf["price"] <= 500: %} {% set color='background-color:yellow;' %} {% else: %} {% set color='' %} {%
+                endif%} <tr style="{{ color }}">
+                <td>{{ productf["name"] }}</td>
+                <td>{{ productf["category"] }}</td>
+                <td>{{ productf["price"] }}</td>
+                <td>
+                    <a href="reviewcomments/{{productId}}">Reviews</a>
+                    <a href="products/{{productId}}/0">Activate</a>
+                </td>
+                </tr>
+                {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

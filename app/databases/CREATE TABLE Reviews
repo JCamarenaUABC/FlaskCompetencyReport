@@ -1,0 +1,14 @@
+CREATE TABLE Reviews(
+   idReview INTEGER PRIMARY KEY AUTOINCREMENT,
+   idProduct INTEGER NOT NULL,
+   Comment text NOT NULL
+);
+
+INSERT INTO Reviews 
+VALUES
+(1,1,'Some text 1'),
+(2,1,'Some text 2'),
+(3,2,'Some text 1'),
+(4,3,'Some text 2'),
+(5,3,'Some text 1'),
+(6,3,'Some text 2');

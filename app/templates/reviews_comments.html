@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+
+{% block content %}
+<h1>Active</h1>
+<table class="table table-dark">
+    <thead class="thead-dark">
+        <th>Comment</th>
+    </thead>
+    <tbody>
+        {% for review in reviews %}
+
+        <tr>
+            <td>{{ review["Comment"] }}</td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

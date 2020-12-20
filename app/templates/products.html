@@ -23,8 +23,9 @@
                 <td>{{ product["category"] }}</td>
                 <td>{{ product["price"] }}</td>
                 <td>
-                    <a href="reviewcomments/{{productId}}">Reviews</a>
-                    <a href="products/{{productId}}/1">Unactivate</a>
+                    <a class="btn btn-info btn-xs" href="reviewcomments/{{productId}}">Reviews</a>
+                    <a class="btn btn-primary btn-xs" href="/review_form"> Add Review </a>
+                    <a class="btn btn-danger btn-xs" href="products/{{productId}}/1">Unactivate</a>
                 </td>
                 </tr>
 
@@ -52,8 +53,8 @@
                 <td>{{ productf["category"] }}</td>
                 <td>{{ productf["price"] }}</td>
                 <td>
-                    <a href="reviewcomments/{{productId}}">Reviews</a>
-                    <a href="products/{{productId}}/0">Activate</a>
+                    <a class="btn btn-info btn-xs" href="reviewcomments/{{productId}}">Reviews</a>
+                    <a class="btn btn-success btn-xs" href="products/{{productId}}/0">Activate</a>
                 </td>
                 </tr>
                 {% endfor %}

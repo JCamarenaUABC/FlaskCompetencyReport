@@ -11,6 +11,15 @@ def get_db():
     return db
 
 
+def output_formatter_reviews(results: tuple):
+    out = {"body": []}
+    for result in results:
+        res_dict = {}
+        res_dict["Comment"] = result[0]
+        out["body"].append(res_dict)
+    return out
+
+
 def output_formatter(results: tuple):
     out = {"body": []}
     for result in results:
@@ -103,7 +112,9 @@ def create(name, price, category, description):
     cursor.commit()
     return last_row_id
 
-########## FOR REVIEW
+# FOR REVIEW
+
+
 def createreview(idproduct, comment):
     value_tuple = (idproduct, comment)
     query = """
@@ -120,10 +131,11 @@ def createreview(idproduct, comment):
 
 
 def readreview(prod_id):
-    
+
     query = "SELECT Comment FROM Reviews WHERE idProduct = %s" % prod_id
     cursor = get_db().execute(query, ())
     results = cursor.fetchall()
     cursor.close()
 
-    return results#output_formatter(results)
+    # return results
+    return output_formatter_reviews(results)

@@ -107,7 +107,9 @@ def agent():
 def page_not_found(e):
     return render_template("404.html"), 404
 
-#### REVIEW
+# REVIEW
+
+
 @app.route("/review_form", methods=["GET", "POST"])
 def review_form():
     if request.method == "POST":
@@ -124,6 +126,5 @@ def review_form():
 def get_reviews(pid):
     out = readreview(pid)
 
-    #return {"ok": out, "message": "jajaja"} 
-    render_template("reviews_comments.html", reviews=out["body"])
-
+    # return {"ok": out, "message": "jajaja"}
+    return render_template("reviews_comments.html", reviews=out["body"])

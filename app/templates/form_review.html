@@ -2,6 +2,9 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
+<a class="btn btn-warning" href="/products"> Back </a>
+<hr>
+
 <div class="container">
     <form method="POST">
         {{ wtf.quick_form(form) }}
